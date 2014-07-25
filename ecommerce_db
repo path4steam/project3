@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2014 at 07:16 AM
+-- Generation Time: Jul 26, 2014 at 01:17 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `tbl_image` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `image` blob NOT NULL,
+  `merchant_id` int(11) NOT NULL,
   PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -58,8 +59,40 @@ CREATE TABLE IF NOT EXISTS `tbl_inventory` (
   `image_id` int(11) NOT NULL,
   `category` text NOT NULL,
   `description` text NOT NULL,
-  `rating` int(5) NOT NULL,
+  `stockleft` int(11) NOT NULL,
   PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mcomments`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_mcomments` (
+  `mcomment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `author` varchar(20) NOT NULL,
+  `mcomment` text NOT NULL,
+  `rating` int(5) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`mcomment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_pcomments`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_pcomments` (
+  `pcomment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pcomment` text NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `rating` int(5) NOT NULL,
+  `author` varchar(20) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`pcomment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -74,8 +107,6 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `l_name` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(11) NOT NULL,
-  `user_type` text NOT NULL,
-  `rating` int(5) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
