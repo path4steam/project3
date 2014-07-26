@@ -8,9 +8,19 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.form-control {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 .navbar-btn {
     margin-left:5px;
     margin-right:5px;
+}
+
+.btn-default {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .slide-image {
