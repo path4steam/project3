@@ -13,6 +13,11 @@ body {
     margin-right: 3px;
 }
 
+.prepended {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .navbar-btn {
     margin-left:5px;
     margin-right:5px;

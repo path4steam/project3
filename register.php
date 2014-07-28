@@ -69,7 +69,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <form action="registration.php" method="post" accept-charset="utf-8" class="form" role="form">
+                    <!-- Form Title -->
                     <legend>Register</legend>
+                    <!-- Caption -->
                     <h4>Registration allows you to comment and purchase items.</h4>
                     <div class="row">
                         <div class="col-xs-6 col-md-6">

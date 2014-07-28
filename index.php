@@ -1,10 +1,19 @@
 <?php
+require_once("config.php");
 session_start();
 if (isset($_SESSION['logged'])) {
 // if($_SESSION['logged']){
     header("Location: menu.php");
     die;
 }
+
+// Connect to mysql */
+$link = mysql_connect(HOST, USER, PW) 
+or die ("Error connecting to the database: " . mysql_error());
+
+// Select database */
+$db_selected = mysql_select_db(DB, $link) 
+or die ("Error selecting the database: " . mysql_error());
 
 ?>
 <!DOCTYPE html>
@@ -43,11 +52,11 @@ if (isset($_SESSION['logged'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">eCommerce Project</a>
+                <a class="navbar-brand" href="index.html">eCommerce Project</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               
+
                 <div class="register">
                     <a class="btn navbar-btn btn-default navbar-right" href="register.php">Register</a>
                 </div>
@@ -80,121 +89,76 @@ if (isset($_SESSION['logged'])) {
 
         switch ($error) {
             case 'fields_empty':
-                echo "<div class=\"alert alert-danger\" role=\"alert\">Fields were missing! Enter username AND password!</div>";
-                break;
+            echo "<div class=\"alert alert-danger\" role=\"alert\">Fields were missing! Enter username AND password!</div>";
+            break;
             case 'auth_failed':
-                echo "<div class=\"alert alert-danger\" role=\"alert\">Authentication failed! Check that username and password are correct!</div>";
-                break;
+            echo "<div class=\"alert alert-danger\" role=\"alert\">Authentication failed! Check that username and password are correct!</div>";
+            break;
             default:
                 # code...
-                break;
+            break;
         }
         ?>
         <div class="row">
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium tempore, quidem quia excepturi deserunt laudantium!</p>
-                            </div>
-                            <!-- Probably not going to implement rating system -->
-                           <!--  <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div> -->
-                        </div>
+                <?php
+                $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
+                $result = mysql_query($query);
+                        // echo "<h2>All Blogs</h2>";
+                while ($row = mysql_fetch_array($result)) {
+                            // echo "<p><a class='blogTitles' name='$row[0]' href='index.php?view=$row[0]'>$row[0]</a> - By: $row[1] $row[2]</p><br/>";
+                    echo "<div class=\"col-sm-4 col-lg-4 col-md-4\">
+                    <div class=\"thumbnail\">
+                    <img src=\"http://placehold.it/320x150\" alt=\"\">
+                    <div class=\"caption\">
+                    
+                    <h4 class=\"pull-right\">$$row[1]</h4>
+                    <h4><a href=\"#\">$row[0]</a></h4>
+                    <a href=\"addToCart.php?id=$row[4]\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Add To Cart</a>
+                    <h5>$row[2]</h5>
+                    
+                    <p>$row[3]</p>
+
+
+
                     </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$64.99</h4>
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$84.99</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$94.99</h4>
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                    </div>";
+                }
+                ?>
 
             </div>
 
         </div>
 
     </div>
-    <!-- /.container -->
 
-    <div class="container">
+</div>
+<!-- /.container -->
 
-        <hr>
+<div class="container">
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; eCommerce Project 2014</p>
-                </div>
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; eCommerce Project 2014</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-    </div>
-    <!-- /.container -->
+</div>
+<!-- /.container -->
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 
