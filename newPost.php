@@ -47,6 +47,14 @@ include("header.php");
                     <input id="item_image" name="item_image" class="input-file" type="file">
                 </div>
             </div>
+            <!-- image url -->
+                 <div class="form-group">
+                      <label class="col-md-4 control-label" for="item_image_ref">Image URL</label>  
+                      <div class="col-md-4">
+                          <input id="item_image_url" name="item_image_ref" type="text" placeholder="" class="form-control input-md">
+                          <!--   <span class="help-block">help</span>   -->
+                      </div>
+                  </div>
 
             <!-- Description -->
             <div class="form-group">

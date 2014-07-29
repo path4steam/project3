@@ -30,7 +30,7 @@ or die ("Error selecting the database: " . mysql_error());
     <title>eCommerce Project</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap-lumen.min.css" rel="stylesheet">
+    <link href="css/bootstrap-yeti.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/store-style.css" rel="stylesheet">
@@ -52,10 +52,12 @@ or die ("Error selecting the database: " . mysql_error());
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">eCommerce Project</a>
+                <a class="navbar-brand" href="index.html">Scamazon</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <p class="navbar-text">--"It's all a lie!"</p>
 
                 <div class="register">
                     <a class="btn navbar-btn btn-default navbar-right" href="register.php">Register</a>
@@ -108,7 +110,7 @@ or die ("Error selecting the database: " . mysql_error());
                 $result = mysql_query($query);
                         // echo "<h2>All Blogs</h2>";
                 while ($row = mysql_fetch_array($result)) {
-                            // echo "<p><a class='blogTitles' name='$row[0]' href='index.php?view=$row[0]'>$row[0]</a> - By: $row[1] $row[2]</p><br/>";
+                           
                     echo "<div class=\"col-sm-4 col-lg-4 col-md-4\">
                     <div class=\"thumbnail\">
                     <img src=\"http://placehold.it/320x150\" alt=\"\">
@@ -146,7 +148,7 @@ or die ("Error selecting the database: " . mysql_error());
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; eCommerce Project 2014</p>
+                <p>Copyright &copy; Scamazon 2014</p>
             </div>
         </div>
     </footer>

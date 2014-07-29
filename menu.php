@@ -70,16 +70,13 @@ include("header.php");
 
             <div class="row">
 
-
                 <?php
-                $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
+                $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
                 $result = mysql_query($query);
-                        // echo "<h2>All Blogs</h2>";
                 while ($row = mysql_fetch_array($result)) {
-                            // echo "<p><a class='blogTitles' name='$row[0]' href='index.php?view=$row[0]'>$row[0]</a> - By: $row[1] $row[2]</p><br/>";
                     echo "<div class=\"col-sm-4 col-lg-4 col-md-4\">
                     <div class=\"thumbnail\">
-                    <img src=\"http://placehold.it/320x150\" alt=\"\">
+                    <img src=\"$row[5]\" alt=\"\">
                     <div class=\"caption\">
                     
                     <h4 class=\"pull-right\">$$row[1]</h4>
@@ -93,7 +90,6 @@ include("header.php");
                            echo "<a href=\"addToCart.php?id=$row[4]\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Add To Cart</a>";
                         }
                     
-                    // <a href=\"addToCart.php?id=$row[4]\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Add To Cart</a>
                         echo "
                     <h5>By $row[2]</h5>
                     
@@ -104,10 +100,6 @@ include("header.php");
                     </div>";
                 }
 
-                // public function ifOwnerButton($value = ' ')
-                // {
-                //     # code...
-                // }
                 ?>
                     
 

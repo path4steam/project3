@@ -13,7 +13,8 @@ $db_selected = mysql_select_db(DB, $link)
 
 $item_title = mysql_real_escape_string($_POST['item_title']);
 $item_price = mysql_real_escape_string($_POST['item_price']);
-$item_image = mysql_real_escape_string($_POST['image']);
+$item_image = mysql_real_escape_string($_POST['item_image']);
+$item_image_ref = mysql_real_escape_string($_POST['item_image_ref']);
 $item_description = mysql_real_escape_string($_POST['item_description']);
 $error_flag = false;
 
@@ -30,15 +31,15 @@ if ($error_flag == false) {
     // Insert new post into database */
     // >Insertion.gif
     // >hhnnnnggggg
-    if ($item_image == ''){
+    if ($item_image_ref == ''){
         // if no image
         $query = sprintf("INSERT INTO inventory (user_id, item_title, item_price, item_description) 
             VALUES ('%s', '%s', '%s', '%s')", $_SESSION['user_id'], $item_title, $item_price, $item_description);
     }
     else{
         // if image
-        $query = sprintf("INSERT INTO inventory (user_id, item_title, item_price, item_image, item_description) 
-            VALUES ('%s', '%s', '%s', '%s', '%s')", $_SESSION['user_id'], $item_title, $item_price, $item_image, $item_description);
+        $query = sprintf("INSERT INTO inventory (user_id, item_title, item_price, item_image_ref, item_description) 
+            VALUES ('%s', '%s', '%s', '%s', '%s')", $_SESSION['user_id'], $item_title, $item_price, $item_image_ref, $item_description);
     }
     $result = mysql_query($query);
     if (!$result) {

@@ -21,12 +21,12 @@ include("header.php");
 
 
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-             <div class="col-md-8 col-md-offset-2">
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+     <div class="col-md-8 col-md-offset-2">
 
-                <div class="panel panel-default">
+        <div class="panel panel-default">
           <!-- Default panel contents -->
           <div class="panel-heading">My Cart</div>
 
@@ -43,39 +43,37 @@ include("header.php");
             $query = "SELECT * FROM inventory WHERE item_id IN (";
 
     // second half is all the ids of the items in our cart
-            foreach($_SESSION['cart'] as $id => $value) {
-                $query.= $id.",";
-            }
+                foreach($_SESSION['cart'] as $id => $value) {
+                    $query.= $id.",";
+                }
 
-            $query = substr($query, 0, -1).") ORDER BY item_title ASC";
-            $result = mysql_query($query);
-            $total = 0;
+                $query = substr($query, 0, -1).") ORDER BY item_title ASC";
+$result = mysql_query($query);
+$total = 0;
 
-            while ($row = mysql_fetch_array($result)){
-                $quantity = $_SESSION['cart'][$row['item_id']]['quantity'];
-                $subtotal = $_SESSION['cart'][$row['item_id']]['quantity'] * $row['item_price'];
-                $total += $subtotal;
-                echo "<tr> 
-                <td>$row[2]</td>
-                <td>$$row[3]</td>
-                <td>$quantity</td>
-                <td>$$subtotal</td>
-                </tr>";
-            }
-            echo "<td></td>
-            <td></td>
-            <td><strong>Total</strong></td>
-            <td>$$total</td>"
-            ?>
+while ($row = mysql_fetch_array($result)){
+    $quantity = $_SESSION['cart'][$row['item_id']]['quantity'];
+    $subtotal = $_SESSION['cart'][$row['item_id']]['quantity'] * $row['item_price'];
+    $total += $subtotal;
+    echo "<tr> 
+    <td>$row[2]</td>
+    <td>$$row[3]</td>
+    <td>$quantity</td>
+    <td>$$subtotal</td>
+    </tr>";
+}
+echo "<td></td>
+<td></td>
+<td><strong>Total</strong></td>
+<td>$$total</td>"
+?>
 </table>
 </div>
-             </div>
-            
+<a href="checkout.php" class="btn btn-success pull-right " name="Checkout">Checkout</a>
+</div>
 
+</div>
 
-
-        </div>
-        
 
 </div>
 <!-- ./container -->

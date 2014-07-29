@@ -8,10 +8,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>eCommerce Project</title>
+    <title>Scamazon</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap-lumen.min.css" rel="stylesheet">
+    <link href="css/bootstrap-yeti.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/store-style.css" rel="stylesheet">
@@ -33,10 +33,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">eCommerce Project</a>
+                <a class="navbar-brand" href="index.php">Scamazon</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <p class="navbar-text">--"It's all a lie!"</p>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -96,7 +98,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; eCommerce Project 2014</p>
+                    <p>Copyright &copy; Scamazon 2014</p>
                 </div>
             </div>
         </footer>

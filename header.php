@@ -35,10 +35,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.php">Scamazon</a>
-                <a class="navbar-text">--"It's all a lie!"</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <p class="navbar-text">--"It's all a lie!"</p>
                 <form action="logout.php" class="navbar-form navbar-right" role="search" method="post">
                     <button type="submit" class="btn btn-default" name="logout">Logout</button>
                 </form>
