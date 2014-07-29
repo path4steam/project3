@@ -16,6 +16,15 @@ or die ("Error connecting to the database: " . mysql_error());
 $db_selected = mysql_select_db(DB, $link) 
 or die ("Error selecting the database: " . mysql_error());
 
+
+  if(isset($_SESSION['cart'][0])){
+        }
+        else {
+                $_SESSION['cart'][0]=array(
+                        "quantity" => 0,
+                        "price" => 0
+                    );
+        }
 ?>
 
 <!DOCTYPE html>
@@ -135,12 +144,10 @@ or die ("Error selecting the database: " . mysql_error());
                     <h4 class=\"pull-right\">$$row[1]</h4>
                     <h4><a href=\"viewItem.php?id=$row[4]\">$row[0]</a></h4>
                     <a href=\"addToCart.php?id=$row[4]\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Add To Cart</a>
-                    <h5>$row[2]</h5>
+                    <h5>By $row[2]</h5>
                     
                     <p>$row[3]</p>
-                   
-
-
+            
                     </div>
                     </div>
                     </div>";
