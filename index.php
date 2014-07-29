@@ -106,19 +106,19 @@ or die ("Error selecting the database: " . mysql_error());
             <div class="row">
 
                 <?php
-                $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
+                $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
                 $result = mysql_query($query);
                         // echo "<h2>All Blogs</h2>";
                 while ($row = mysql_fetch_array($result)) {
                            
                     echo "<div class=\"col-sm-4 col-lg-4 col-md-4\">
                     <div class=\"thumbnail\">
-                    <img src=\"http://placehold.it/320x150\" alt=\"\">
+                    <img src=\"$row[5]\" alt=\"\">
                     <div class=\"caption\">
                     
                     <h4 class=\"pull-right\">$$row[1]</h4>
                     <h4><a href=\"#\">$row[0]</a></h4>
-                    <a href=\"addToCart.php?id=$row[4]\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Add To Cart</a>
+                    <a href=\"register.php\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Register to buy</a>
                     <h5>$row[2]</h5>
                     
                     <p>$row[3]</p>

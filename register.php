@@ -87,6 +87,9 @@
                     <input type="text" name="username" value="" class="form-control input-lg" placeholder="Your Username" required />
                     <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  />
                     <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password"/>
+                        <img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+                        <input type="text" name="captcha_code" size="10" maxlength="6" />
+                        <a href="#" onclick="document.getElementById('captcha').src = '/securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a>
                     <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" name="register">Create my account</button>
                 </form>
             </div>

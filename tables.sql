@@ -15,21 +15,6 @@ CREATE TABLE IF NOT EXISTS users (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; 
 
 
-CREATE TABLE IF NOT EXISTS `tbl_cart` (
-  `cart_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-CREATE TABLE IF NOT EXISTS `tbl_image` (
-  `image_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `image` blob NOT NULL,
-  PRIMARY KEY (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
 
 CREATE TABLE IF NOT EXISTS inventory (
   item_id int(11) NOT NULL AUTO_INCREMENT,
@@ -40,3 +25,4 @@ CREATE TABLE IF NOT EXISTS inventory (
   rating int(5),
   PRIMARY KEY (item_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+ALTER TABLE inventory ADD COLUMN item_image_ref VARCHAR(255) AFTER item_description;
