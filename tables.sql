@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS inventory (
   item_title varchar(32) NOT NULL,
   item_price decimal(10, 2) NOT NULL,
   item_description varchar(500) NOT NULL,
+  item_image_ref varchar(255)
   rating int(5),
   PRIMARY KEY (item_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-ALTER TABLE inventory ADD COLUMN item_image_ref VARCHAR(255) AFTER item_description;
