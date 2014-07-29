@@ -28,7 +28,7 @@ $db_selected = mysql_select_db(DB, $link)
             if(mysql_num_rows($result)!= 0){
                 $row = mysql_fetch_array($result);
                   
-                $_SESSION['cart'][$row['item_id']]=array(
+                $_SESSION['cart'][$row['item_id']] = array(
                         "quantity" => 1,
                         "price" => $row['item_price']
                     );
