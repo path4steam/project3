@@ -29,6 +29,7 @@ $db_selected = mysql_select_db(DB, $link)
                 $row = mysql_fetch_array($result);
                   
                 $_SESSION['cart'][$row['item_id']] = array(
+                        "id" => $row['item_id'],
                         "quantity" => 1,
                         "price" => $row['item_price']
                     );

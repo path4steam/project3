@@ -37,11 +37,30 @@ include("header.php");
 
         <div class="panel panel-default">
           <!-- Default panel contents -->
-          <div class="panel-heading">My Cart</div>
+          <div class="panel-heading">My Profile</div>
 
-          <!-- Table -->
+
+          <!-- info Table -->
           <table class="table">
             <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>User ID</th>
+            </tr>
+            <tr>
+                <td><?php echo $_SESSION['firstname']?></td>
+                <td><?php echo $_SESSION['lastname']?></td>
+                <td><?php echo $_SESSION['user_email']?></td>
+                <td><?php echo $_SESSION['user_id']?></td>
+            </tr>
+        </table>
+            <br>
+          <!-- order Table -->
+          <div class="panel-heading">My Orders</div>
+          <table class="table">
+            <tr>
+                <th>Date and Time</th>
                 <th>Order Number</th>
                 <th>Item ID</th>
                 <th>Item Name</th>
@@ -60,10 +79,11 @@ include("header.php");
                 // $subtotal = $_SESSION['cart'][$row['item_id']]['quantity'] * $row['item_price'];
                 // $total += $subtotal;
                 echo "<tr> 
+                <td>$row[5]</td>
                 <td>$row[0]</td>
-                <td>$$row[1]</td>
                 <td>$row[2]</td>
-                <td>$$row[3]</td>
+                <td>$row[3]</td>
+                <td>$$row[4]</td>
                 </tr>";
             }
             // echo "<td></td>

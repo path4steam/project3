@@ -32,6 +32,11 @@ CREATE TABLE IF NOT EXISTS orders (
   user_id int(11) NOT NULL,
   item_id int(11) NOT NULL,
   item_title varchar(32) NOT NULL,
-  item_price decimal(10, 2) NOT NULL,
-  PRIMARY KEY (order_num)
+  item_price decimal(10, 2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE orders MODIFY COLUMN item_title VARCHAR(32);
+
+SELECT * FROM inventory WHERE item_id = 3
+
+ALTER TABLE orders ADD COLUMN order_date DATETIME NOT NULL;

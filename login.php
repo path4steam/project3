@@ -41,6 +41,7 @@ if (crypt($password, $actual_hash) == $actual_hash){
 		$_SESSION['user_id'] = $row['user_id'];
 		$_SESSION['firstname'] = $row['firstname'];
 		$_SESSION['lastname'] = $row['lastname'];
+		$_SESSION['user_email'] = $row['user_email'];
 		$_SESSION['logged'] = TRUE;
 		header("Location: menu.php");
 		// exit;
