@@ -19,6 +19,7 @@ $db_selected = mysql_select_db(DB, $link)
     // $timezone = date_default_timezone_get();
     date_default_timezone_set("America/New_York");
     $date = date('m/d/Y h:i:s a', time());
+    // echo $date;
     // $dt = new DateTime();
     // echo $dt->format('Y-m-d H:i:s');
     // $date = $dt->format('Y-m-d H:i:s');

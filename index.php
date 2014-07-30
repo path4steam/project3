@@ -117,7 +117,7 @@ or die ("Error selecting the database: " . mysql_error());
                     <div class=\"caption\">
                     
                     <h4 class=\"pull-right\">$$row[1]</h4>
-                    <h4><a href=\"#\">$row[0]</a></h4>
+                    <h4><a href=\"viewItem.php\">$row[0]</a></h4>
                     <a href=\"register.php\" class=\"btn btn-default btn-sm pull-right\" name=\"addToCart\">Register to buy</a>
                     <h5>$row[2]</h5>
                     

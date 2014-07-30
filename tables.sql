@@ -40,3 +40,5 @@ ALTER TABLE orders MODIFY COLUMN item_title VARCHAR(32);
 SELECT * FROM inventory WHERE item_id = 3
 
 ALTER TABLE orders ADD COLUMN order_date DATETIME NOT NULL;
+
+ALTER TABLE orders ALTER COLUMN order_date TYPE varchar(16);

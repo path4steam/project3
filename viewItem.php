@@ -19,7 +19,7 @@ or die ("Error selecting the database: " . mysql_error());
 $id = intval($_GET['id']);
 
 $query = "SELECT * FROM inventory WHERE item_id = {$id}";
-// $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
+// $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory Left JOIN users ON inventory.user_id=users.user_id AND inventory.user_id ={$id};";
 $result = mysql_query($query);
 if(mysql_num_rows($result)!= 0){
     $row = mysql_fetch_array($result);
@@ -85,7 +85,7 @@ include("header.php");
                             <span class="glyphicon glyphicon-star-empty"></span>
                             Anonymous -->
                             <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                            <p>This item was so great, it brought me to tears!</p>
                         </div>
                     </div>
 
