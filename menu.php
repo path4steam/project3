@@ -45,6 +45,9 @@ include("header.php");
              case 'post_deleted':
                 echo "<div class=\"alert alert-success\" role=\"alert\">Item deleted!</div>"; 
                  break;
+             case 'checkout_complete':
+                echo "<div class=\"alert alert-success\" role=\"alert\">Checkout complete! You can continue shopping!</div>"; 
+               break;
              default:
                  # code...
                  break;

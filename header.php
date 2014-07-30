@@ -49,8 +49,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Go to<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="newPost.php"><span class="glyphicon glyphicon-plus"></span>  New Post</a></li>
-                            <li><a href="inventory.php"><span class="glyphicon glyphicon-list-alt"></span>  My Inventory</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-tags"></span>  My Customers</a></li>
+                            <!-- <li><a href="inventory.php"><span class="glyphicon glyphicon-list-alt"></span>  My Inventory</a></li> -->
+                            <li><a href="#"><span class="glyphicon glyphicon-tags"></span>  My Orders</a></li>
                             <li class="divider"></li>
                             <li><a href="viewCart.php"><span class="glyphicon glyphicon-shopping-cart"></span>  My Cart</a></li>
                             <li><a href="checkout.php"><span class="glyphicon glyphicon-credit-card"></span>  Checkout</a></li>

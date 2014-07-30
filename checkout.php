@@ -16,25 +16,11 @@ $link = mysql_connect(HOST, USER, PW)
 $db_selected = mysql_select_db(DB, $link) 
     or die ("Error selecting the database: " . mysql_error());
 
-        $id = intval($_GET['id']);
-        if(isset($_SESSION['cart'][$id])){
-            $_SESSION['cart'][$id]['quantity']++;
+        // $id = intval($_GET['id']);
+        if(isset($_SESSION['cart'])){
+            // $_SESSION['cart'][$id]['quantity']++;
+            unset($_SESSION['cart']);
+            
         }
-        else {
-            $query = "SELECT * FROM inventory WHERE item_id={$id}";
-            $result = mysql_query($query);
-            if(mysql_num_rows($result)!= 0){
-                $row = mysql_fetch_array($result);
-                  
-                $_SESSION['cart'][$row['item_id']] = array(
-                        "quantity" => 1,
-                        "price" => $row['item_price']
-                    );
-                header("Location: menu.php?message=added_to_cart");
-            }else{
-                $header("Location: menu.php?error=cart_error");
-            }
-        }
-    // }
-    header("Location: menu.php?message=added_to_cart");
+    header("Location: menu.php?message=checkout_complete");
 ?>

@@ -11,6 +11,15 @@ include("header.php");
 
     
     <div class="container">
+             <?php 
+             $error = @$_GET['error'];
+
+             if ($error){
+              echo "<div class=\"alert alert-danger\" role=\"alert\">Fields empty! Fill them all out!</div>";
+            }
+            ?>
+
+
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <form action="createPost.php" method="post" accept-charset="utf-8" class="form-horizontal" role="form">

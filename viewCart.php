@@ -43,15 +43,16 @@ include("header.php");
             $query = "SELECT * FROM inventory WHERE item_id IN (";
 
     // second half is all the ids of the items in our cart
-                foreach($_SESSION['cart'] as $id => $value) {
+                if (isset($_SESSION['cart'])){
+                foreach(@$_SESSION['cart'] as $id => $value) {
                     $query.= $id.",";
                 }
 
                 $query = substr($query, 0, -1).") ORDER BY item_title ASC";
-$result = mysql_query($query);
+$result = mysql_query($query);}
 $total = 0;
 
-while ($row = mysql_fetch_array($result)){
+while (@$row = mysql_fetch_array($result)){
     $quantity = $_SESSION['cart'][$row['item_id']]['quantity'];
     $subtotal = $_SESSION['cart'][$row['item_id']]['quantity'] * $row['item_price'];
     $total += $subtotal;
