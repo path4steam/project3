@@ -17,15 +17,17 @@ $db_selected = mysql_select_db(DB, $link)
     or die ("Error selecting the database: " . mysql_error());
     $user_id = $_SESSION['user_id'];
 
-    foreach ($_SESSION['cart'][$id] as $key => $value) {
-        $value[$price] = $item_price;
-        $query1 = "SELECT FROM inventory WHERE item_id = $value && user_id = $user_id";
+    foreach ($_SESSION['cart'] as $key => $value) {
+        $item_price = $value['price'];
+        echo "$value['price']";
+        $query1 = "SELECT * FROM inventory WHERE item_id = $value && user_id = $user_id";
         $result1 = mysql_query($query1);
+        echo $result1 . "EYFUEIufgieyugfiugesyufgsyugfuygeufygsuyefgy";
         $row = mysql_fetch_array($result1);
         // $_SESSION['cart'][$row['item_id']] = array(
         //                 "quantity" => 1,
         //                 "price" => $row['item_price']
-        header("Location: menu.php?message=gothere");
+        // header("Location: menu.php?message=gothere");
         $query2 = sprintf("INSERT INTO orders (user_id, item_id, item_title, item_price) 
                 VALUES ('%s', '%s', '%s', '%s')", $_SESSION['user_id'], $row[0], $row[2], $row[3]);
         $result = mysql_query($query);

@@ -18,8 +18,8 @@ or die ("Error selecting the database: " . mysql_error());
 
 $id = intval($_GET['id']);
 
-// $query = "SELECT * FROM inventory WHERE item_id = {$id}";
-$query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
+$query = "SELECT * FROM inventory WHERE item_id = {$id}";
+// $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory INNER JOIN users ON inventory.user_id=users.user_id;";
 $result = mysql_query($query);
 if(mysql_num_rows($result)!= 0){
     $row = mysql_fetch_array($result);
@@ -36,7 +36,7 @@ include("header.php");
             <div class="col-md-8 col-md-offset-2">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <img class="img-responsive" src="<?php echo $row[5] ?>" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$<?php echo $row[1]; ?></h4>
                         <h4><a href="#"><?php echo $row[0]; ?></a>

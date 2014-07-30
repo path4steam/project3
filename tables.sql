@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS orders (
   order_num int(11) NOT NULL,
   user_id int(11) NOT NULL,
   item_id int(11) NOT NULL,
-  item_title int(11) NOT NULL,
+  item_title varchar(32) NOT NULL,
   item_price decimal(10, 2) NOT NULL,
   PRIMARY KEY (order_num)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
