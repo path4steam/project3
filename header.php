@@ -44,7 +44,7 @@
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><?php echo $_SESSION['username'] ?></a></li>
+                    <li><a href="profile.php"><?php echo $_SESSION['username'] ?></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Go to<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
