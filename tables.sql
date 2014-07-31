@@ -28,17 +28,11 @@ CREATE TABLE IF NOT EXISTS inventory (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS orders (
-  order_num int(11) NOT NULL,
+  order_num int(11) NOT NULL AUTO_INCREMENT,
   user_id int(11) NOT NULL,
   item_id int(11) NOT NULL,
   item_title varchar(32) NOT NULL,
-  item_price decimal(10, 2) NOT NULL
+  item_price decimal(10, 2) NOT NULL,
+  order_date varchar(16),
+  PRIMARY KEY (order_num)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE orders MODIFY COLUMN item_title VARCHAR(32);
-
-SELECT * FROM inventory WHERE item_id = 3
-
-ALTER TABLE orders ADD COLUMN order_date DATETIME NOT NULL;
-
-ALTER TABLE orders ALTER COLUMN order_date TYPE varchar(16);

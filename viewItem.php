@@ -18,8 +18,8 @@ or die ("Error selecting the database: " . mysql_error());
 
 $id = intval($_GET['id']);
 
-$query = "SELECT * FROM inventory WHERE item_id = {$id}";
-// $query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory Left JOIN users ON inventory.user_id=users.user_id AND inventory.user_id ={$id};";
+// $query = "SELECT * FROM inventory WHERE item_id = {$id}";
+$query = "SELECT inventory.item_title, inventory.item_price, users.user_name, inventory.item_description, inventory.item_id, inventory.item_image_ref FROM inventory Left JOIN users ON inventory.user_id=users.user_id WHERE inventory.item_id ={$id};";
 $result = mysql_query($query);
 if(mysql_num_rows($result)!= 0){
     $row = mysql_fetch_array($result);
